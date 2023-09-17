@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import unittest
 
+import pytest
+
 from src.gilded_rose import Item, GildedRose
 
 
@@ -21,6 +23,10 @@ class GildedRoseTest(unittest.TestCase):
 
         self.assertEqual(13, items[0].quality)
 
-        
+    @pytest.mark.skip('Test list')
+    def test_aged_brie_that_past_its_sell_by_date_increases_in_quality_by_2(self):
+        pass
+
+
 if __name__ == '__main__':
     unittest.main()

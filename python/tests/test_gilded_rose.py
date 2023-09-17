@@ -13,6 +13,14 @@ class GildedRoseTest(unittest.TestCase):
 
         self.assertEqual(11, items[0].quality)
 
+    def test_aged_brie_that_has_reached_expiry_date_increases_in_quality_by_2(self):
+        items = [Item("Aged Brie", sell_in=0, quality=11)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(13, items[0].quality)
+
         
 if __name__ == '__main__':
     unittest.main()

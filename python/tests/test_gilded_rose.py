@@ -5,7 +5,7 @@ from src.gilded_rose import Item, GildedRose
 
 
 class GildedRoseTest(unittest.TestCase):
-    def test_aged_brie_before_expiry_date(self):
+    def test_aged_brie_before_expiry_date_increases_in_quality_by_1(self):
         items = [Item("Aged Brie", sell_in=5, quality=10)]
         gilded_rose = GildedRose(items)
 

@@ -49,6 +49,10 @@ class BackstagePassesTest(unittest.TestCase):
     def test_backstage_passes_increase_in_quality_by_two_exactly_10_days_before_concert(self):
         pass
 
+    @unittest.skip(reason='Test list')
+    def test_backstage_passes_increase_in_quality_by_two_less_than_10_days_but_more_than_5_days_before_concert(self):
+        pass
+
 
 if __name__ == "__main__":
     unittest.main()

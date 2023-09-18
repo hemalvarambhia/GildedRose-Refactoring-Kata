@@ -16,12 +16,12 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(11, aged_brie.quality)
 
     def test_aged_brie_that_has_reached_expiry_date_increases_in_quality_by_2(self):
-        items = [Item("Aged Brie", sell_in=0, quality=11)]
-        gilded_rose = GildedRose(items)
+        aged_brie = Item("Aged Brie", sell_in=0, quality=11)
+        gilded_rose = GildedRose([aged_brie])
 
         gilded_rose.update_quality()
 
-        self.assertEqual(13, items[0].quality)
+        self.assertEqual(13, aged_brie.quality)
 
     def test_aged_brie_that_past_its_sell_by_date_increases_in_quality_by_2(self):
         items = [Item("Aged Brie", sell_in=-1, quality=11)]

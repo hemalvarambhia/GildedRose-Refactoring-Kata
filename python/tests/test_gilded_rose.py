@@ -23,10 +23,14 @@ class GildedRoseTest(unittest.TestCase):
 
         self.assertEqual(13, items[0].quality)
 
-    @pytest.mark.skip('Test list')
     def test_aged_brie_that_past_its_sell_by_date_increases_in_quality_by_2(self):
-        pass
+        items = [Item("Aged Brie", sell_in=-1, quality=11)]
+        gilded_rose = GildedRose(items)
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(13, items[0].quality)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -40,5 +40,15 @@ class AgedBrieTest(unittest.TestCase):
         self.assertEqual(50, [aged_brie][0].quality)
 
 
+class BackstagePassesTest(unittest.TestCase):
+    @unittest.skip(reason='Test list')
+    def test_backstage_passes_increase_in_quality_by_one_more_than_10_days_before_concert(self):
+        pass
+
+    @unittest.skip(reason='Test list')
+    def test_backstage_passes_increase_in_quality_by_two_ten_days_before_concert(self):
+        pass
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-import pytest
 
 from src.gilded_rose import Item, GildedRose
 
@@ -41,7 +40,6 @@ class AgedBrieTest(unittest.TestCase):
 
 
 class BackstagePassesTest(unittest.TestCase):
-
     def test_backstage_passes_increase_in_quality_by_one_more_than_10_days_before_concert(self):
         backstage_passes = Item("Backstage passes to a TAFKAL80ETC concert", sell_in=11, quality=33)
         gilded_rose = GildedRose([backstage_passes])
@@ -58,7 +56,7 @@ class BackstagePassesTest(unittest.TestCase):
 
         self.assertEqual(23, backstage_passes.quality)
 
-    @unittest.skip(reason='Test list')
+    @unittest.skip(reason="Test list")
     def test_backstage_passes_increase_in_quality_by_two_less_than_10_days_but_more_than_5_days_before_concert(self):
         pass
 

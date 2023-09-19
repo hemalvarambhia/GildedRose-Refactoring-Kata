@@ -37,7 +37,7 @@ class AgedBrieTest(unittest.TestCase):
 
         gilded_rose.update_quality()
 
-        self.assertEqual(50, [aged_brie][0].quality)
+        self.assertEqual(50, aged_brie.quality)
 
 
 class BackstagePassesTest(unittest.TestCase):

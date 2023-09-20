@@ -29,6 +29,18 @@ class BackstagePassesTest(unittest.TestCase):
 
         self.assertEqual(23, backstage_passes.quality)
 
+    @unittest.skip(reason='Test list')
+    def test_backstage_passes_increase_in_quality_by_three_less_than_5_days_but_more_than_1_day_before_concert(self):
+        pass
+
+    @unittest.skip(reason='Test list')
+    def test_backstage_passes_fall_to_zero_quality_on_the_day_of_the_concert(self):
+        pass
+
+    @unittest.skip(reason='Test')
+    def test_quality_of_backstage_passes_is_never_below_zero(self):
+        pass
+
 
 if __name__ == "__main__":
     unittest.main()

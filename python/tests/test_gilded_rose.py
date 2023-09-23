@@ -54,9 +54,13 @@ class BackstagePassesTest(unittest.TestCase):
 
         self.assertEqual(0, backstage_passes.quality)
 
-    @unittest.skip(reason='Test')
     def test_quality_of_backstage_passes_is_never_below_zero(self):
-        pass
+        backstage_passes = Item("Backstage passes to a TAFKAL80ETC concert", sell_in=0, quality=0)
+        gilded_rose = GildedRose([backstage_passes])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(0, backstage_passes.quality)
 
 
 if __name__ == "__main__":

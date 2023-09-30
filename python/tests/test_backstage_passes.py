@@ -5,6 +5,15 @@ from src.gilded_rose import Item, GildedRose
 
 
 class BackstagePassesTest(unittest.TestCase):
+
+    def test_backstage_passes_can_be_sold(self):
+        backstage_passes = Item("Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=21)
+        gilded_rose = GildedRose([backstage_passes])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(4, backstage_passes.sell_in)
+
     def test_backstage_passes_increase_in_quality_by_one_more_than_10_days_before_concert(self):
         backstage_passes = Item("Backstage passes to a TAFKAL80ETC concert", sell_in=11, quality=33)
         gilded_rose = GildedRose([backstage_passes])

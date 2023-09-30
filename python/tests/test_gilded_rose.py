@@ -14,9 +14,13 @@ class NormalItemsTest(unittest.TestCase):
 
         self.assertEqual(12, normal_item.sell_in)
 
-    @unittest.skip(reason='Test list')
     def test_normal_item_quality_that_has_not_reached_its_sell_by_date_decreases_by_1(self):
-        pass
+        normal_item = Item(name='Any normal item', sell_in=13, quality=5)
+        gilded_rose = GildedRose([normal_item])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(4, normal_item.quality)
 
     @unittest.skip(reason='Test list')
     def test_normal_item_quality_that_has_reached_its_sell_by_date_decreases_twice_as_fast(self):

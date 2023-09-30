@@ -6,6 +6,14 @@ from src.gilded_rose import Item, GildedRose
 
 
 class AgedBrieTest(unittest.TestCase):
+
+    def test_aged_brie_can_be_sold(self):
+        aged_brie = Item("Aged Brie", sell_in=12, quality=10)
+        gilded_rose = GildedRose([aged_brie])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(11, aged_brie.sell_in)
     def test_aged_brie_before_expiry_date_increases_in_quality_by_1(self):
         aged_brie = Item("Aged Brie", sell_in=5, quality=10)
         gilded_rose = GildedRose([aged_brie])

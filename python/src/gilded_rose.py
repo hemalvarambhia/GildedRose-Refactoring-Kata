@@ -16,11 +16,9 @@ class GildedRose(object):
                     item.quality = item.quality + 1
                     if item.name == "Backstage passes to a TAFKAL80ETC concert":
                         if item.sell_in < 11:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
+                            item.quality = self.__increase_quality_of__(item)
                         if item.sell_in < 6:
-                            if item.quality < 50:
-                                item.quality = item.quality + 1
+                            item.quality = self.__increase_quality_of__(item)
             if item.name != "Sulfuras, Hand of Ragnaros":
                 item.sell_in = item.sell_in - 1
             if item.sell_in < 0:
@@ -32,8 +30,7 @@ class GildedRose(object):
                     else:
                         item.quality = 0
                 else:
-                    if item.quality < 50:
-                        item.quality = item.quality + 1
+                    item.quality = self.__increase_quality_of__(item)
 
     def __increase_quality_of__(self, item):
         if item.quality < 50:

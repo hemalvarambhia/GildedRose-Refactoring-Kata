@@ -35,6 +35,12 @@ class GildedRose(object):
                     if item.quality < 50:
                         item.quality = item.quality + 1
 
+    def __increase_quality_of__(self, item):
+        if item.quality < 50:
+            return item.quality + 1
+        else:
+            return item.quality
+
 
 class Item:
     def __init__(self, name, sell_in, quality):

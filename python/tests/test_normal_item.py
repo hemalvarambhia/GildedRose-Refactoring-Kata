@@ -38,9 +38,13 @@ class NormalItemsTest(unittest.TestCase):
 
         self.assertEqual(12, normal_item.quality)
 
-    @unittest.skip(reason='Test list')
     def test_normal_item_quality_can_never_be_less_than_zero(self):
-        pass
+        normal_item = Item(name='Any normal item', sell_in=-1, quality=0)
+        gilded_rose = GildedRose([normal_item])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(0, normal_item.quality)
 
 
 if __name__ == "__main__":

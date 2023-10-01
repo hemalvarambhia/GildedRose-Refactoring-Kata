@@ -23,12 +23,12 @@ class GildedRose(object):
             if item.sell_in < 0:
                 if item.name == "Backstage passes to a TAFKAL80ETC concert":
                     item.quality = 0
-                if item.name != "Aged Brie":
+                if item.name == "Aged Brie":
+                    item.quality = self.__increase_quality_of__(item)
+                else:
                     if item.name != "Sulfuras, Hand of Ragnaros":
                         if item.quality > 0:
                             item.quality = item.quality - 1
-                else:
-                    item.quality = self.__increase_quality_of__(item)
 
     def __increase_quality_of__(self, item):
         if item.quality < 50:

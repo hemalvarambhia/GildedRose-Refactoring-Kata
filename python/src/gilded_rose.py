@@ -12,8 +12,7 @@ class GildedRose(object):
                     if item.name != "Sulfuras, Hand of Ragnaros":
                         item.quality = item.quality - 1
             else:
-                if item.quality < 50:
-                    item.quality = item.quality + 1
+                item.quality = self.__increase_quality_of__(item)
                 if item.name == "Backstage passes to a TAFKAL80ETC concert":
                     if item.sell_in < 11:
                         item.quality = self.__increase_quality_of__(item)

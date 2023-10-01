@@ -79,6 +79,14 @@ class BackstagePassesTest(unittest.TestCase):
 
         self.assertEqual(0, backstage_passes.quality)
 
+    def test_quality_of_backstage_passes_cannot_exceed_50(self):
+        backstage_passes = Item("Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=50)
+        gilded_rose = GildedRose([backstage_passes])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(50, backstage_passes.quality)
+
 
 if __name__ == "__main__":
     unittest.main()

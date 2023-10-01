@@ -38,6 +38,10 @@ class NormalItemsTest(unittest.TestCase):
 
         self.assertEqual(12, normal_item.quality)
 
+    @unittest.skip(reason='Test list')
+    def test_normal_item_quality_can_never_be_less_than_zero(self):
+        pass
+
 
 if __name__ == "__main__":
     unittest.main()

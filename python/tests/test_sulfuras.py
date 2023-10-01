@@ -15,6 +15,11 @@ class SulfurasItemsTest(unittest.TestCase):
 
         self.assertEqual(0, sulfuras.sell_in)
 
-    @unittest.skip(reason='Test list')
+
     def test_sulfuras_does_not_change_in_quality(self):
-        pass
+        sulfuras = Item(name="Sulfuras, Hand of Ragnaros", sell_in=0, quality=1)
+        gilded_rose = GildedRose([sulfuras])
+
+        gilded_rose.update_quality()
+
+        self.assertEqual(1, sulfuras.quality)

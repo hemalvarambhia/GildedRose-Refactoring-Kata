@@ -24,9 +24,8 @@ class GildedRose(object):
                     item.quality = 0
                 if item.name == "Aged Brie":
                     item.quality = self.__increase_quality_of__(item)
-                else:
-                    if item.name != "Sulfuras, Hand of Ragnaros":
-                        item.quality = self.__reduce_quality_of(item)
+                elif item.name != "Sulfuras, Hand of Ragnaros":
+                    item.quality = self.__reduce_quality_of(item)
 
     def __reduce_quality_of(self, item):
         if item.quality > 0:

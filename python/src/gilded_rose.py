@@ -26,8 +26,7 @@ class GildedRose(object):
                     item.quality = self.__increase_quality_of__(item)
                 else:
                     if item.name != "Sulfuras, Hand of Ragnaros":
-                        if item.quality > 0:
-                            item.quality = item.quality - 1
+                        item.quality = self.__reduce_quality_of(item)
 
     def __reduce_quality_of(self, item):
         if item.quality > 0:

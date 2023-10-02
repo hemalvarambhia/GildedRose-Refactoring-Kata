@@ -11,11 +11,10 @@ class GildedRose(object):
                 item.quality = self.__increase_quality_of__(item)
             elif item.name == "Backstage passes to a TAFKAL80ETC concert":
                 item.quality = self.__increase_quality_of__(item)
-                if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                    if item.sell_in < 11:
-                        item.quality = self.__increase_quality_of__(item)
-                    if item.sell_in < 6:
-                        item.quality = self.__increase_quality_of__(item)
+                if item.sell_in < 11:
+                    item.quality = self.__increase_quality_of__(item)
+                if item.sell_in < 6:
+                    item.quality = self.__increase_quality_of__(item)
             elif item.name != "Sulfuras, Hand of Ragnaros":
                 item.quality = self.__reduce_quality_of(item)
             if item.name != "Sulfuras, Hand of Ragnaros":

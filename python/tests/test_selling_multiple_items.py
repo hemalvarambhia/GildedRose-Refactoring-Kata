@@ -17,7 +17,3 @@ class SellingMultipleItemsTest(unittest.TestCase):
         self.assertEqual(32, sulfuras.quality)
         self.assertEqual(12, aged_brie.quality)
         self.assertEqual(1, normal_item.quality)
-
-    @unittest.skip(reason='Test list')
-    def test_selling_no_items(self):
-        pass

@@ -20,14 +20,17 @@ class GildedRose(object):
                     item.quality = self.__increase_quality_of__(item)
             else:
                 item.quality = self.__reduce_quality_of(item)
-            item.sell_in = item.sell_in - 1
+
             if item.name == "Backstage passes to a TAFKAL80ETC concert":
+                item.sell_in = item.sell_in - 1
                 if item.sell_in < 0:
                     item.quality = 0
             elif item.name == "Aged Brie":
+                item.sell_in = item.sell_in - 1
                 if item.sell_in < 0:
                     item.quality = self.__increase_quality_of__(item)
             else:
+                item.sell_in = item.sell_in - 1
                 if item.sell_in < 0:
                     item.quality = self.__reduce_quality_of(item)
 

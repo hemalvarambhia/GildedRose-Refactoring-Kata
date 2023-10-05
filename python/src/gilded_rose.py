@@ -26,15 +26,16 @@ class GildedRose(object):
                     item.quality = 0
             else:
                 item.quality = self.__reduce_quality_of(item)
+                item.sell_in = item.sell_in - 1
+                if item.sell_in < 0:
+                    item.quality = self.__reduce_quality_of(item)
 
             if item.name == "Backstage passes to a TAFKAL80ETC concert":
                 pass
             elif item.name == "Aged Brie":
                 pass
             else:
-                item.sell_in = item.sell_in - 1
-                if item.sell_in < 0:
-                    item.quality = self.__reduce_quality_of(item)
+                pass
 
     def __reduce_quality_of(self, item):
         if item.quality > 0:

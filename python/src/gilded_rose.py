@@ -37,7 +37,7 @@ class GildedRose(object):
         else:
             return item.quality
 
-    def __increase_quality_of__(self, item, by=1):
+    def __increase_quality_of__(self, item, by):
         if item.quality < 50:
             return item.quality + by
         else:

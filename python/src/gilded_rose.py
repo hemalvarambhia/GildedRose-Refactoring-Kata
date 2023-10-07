@@ -31,9 +31,9 @@ class GildedRose(object):
                     if item.sell_in < 0:
                         item.quality = self.__reduce_quality_of(item)
 
-    def __reduce_quality_of(self, item):
+    def __reduce_quality_of(self, item, by=1):
         if item.quality > 0:
-            return item.quality - 1
+            return item.quality - by
         else:
             return item.quality
 

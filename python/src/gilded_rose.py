@@ -7,10 +7,10 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
-            if item.name == 'Sulfuras, Hand of Ragnaros':
-                continue
 
             match item.name:
+                case 'Sulfuras, Hand of Ragnaros':
+                    pass
                 case 'Aged Brie':
                     item.quality = self.__increase_quality_of__(item)
                     item.sell_in = item.sell_in - 1

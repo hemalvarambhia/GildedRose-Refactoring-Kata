@@ -16,10 +16,13 @@ class GildedRose(object):
                 case 'Backstage passes to a TAFKAL80ETC concert':
                     self.__update_quality_of_backstage_passes__(item)
                 case _:
-                    item.quality = self.__reduce_quality_of(item)
-                    item.sell_in = item.sell_in - 1
-                    if item.sell_in < 0:
-                        item.quality = self.__reduce_quality_of(item)
+                    self.__update_normal_items__(item)
+
+    def __update_normal_items__(self, item):
+        item.quality = self.__reduce_quality_of(item)
+        item.sell_in = item.sell_in - 1
+        if item.sell_in < 0:
+            item.quality = self.__reduce_quality_of(item)
 
     def __update_quality_of_backstage_passes__(self, item):
         item.quality = self.__increase_quality_of__(item, 1)

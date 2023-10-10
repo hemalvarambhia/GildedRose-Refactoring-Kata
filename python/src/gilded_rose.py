@@ -10,13 +10,16 @@ class GildedRose(object):
 
             match item.name:
                 case 'Sulfuras, Hand of Ragnaros':
-                    pass
+                    self.__update_sulfuras__()
                 case 'Aged Brie':
                     self.__update_aged_brie__(item)
                 case 'Backstage passes to a TAFKAL80ETC concert':
                     self.__update_backstage_passes__(item)
                 case _:
                     self.__update_normal_items__(item)
+
+    def __update_sulfuras__(self):
+        pass
 
     def __update_normal_items__(self, item):
         item.quality = self.__reduce_quality_of(item)

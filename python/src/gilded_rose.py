@@ -49,18 +49,6 @@ class GildedRose(object):
 
         item.quality = min(50, max(0, item.quality + change))
 
-    def __reduce_quality_of(self, item, by=1):
-        if item.quality > 0:
-            return item.quality - by
-        else:
-            return item.quality
-
-    def __increase_quality_of__(self, item, by):
-        if item.quality < 50:
-            return item.quality + by
-        else:
-            return item.quality
-
 
 class Item:
     def __init__(self, name, sell_in, quality):

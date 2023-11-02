@@ -35,16 +35,19 @@ class GildedRose(object):
             return -2
 
     def __update_backstage_passes__(self, item):
-        if item.sell_in > 10:
-            change = 1
-        elif item.sell_in in range(6, 11):
-            change = 2
-        elif item.sell_in in range(1, 6):
-            change = 3
-        if item.sell_in <= 0:
-            change = -item.quality
+        change = self.__back_stage_passes_change_in_quality__(item)
         item.sell_in = item.sell_in - 1
         item.quality = min(50, max(0, item.quality + change))
+
+    def __back_stage_passes_change_in_quality__(self, item):
+        if item.sell_in > 10:
+            return 1
+        elif item.sell_in in range(6, 11):
+            return 2
+        elif item.sell_in in range(1, 6):
+            return 3
+        if item.sell_in <= 0:
+            return -item.quality
 
     def __update_aged_brie__(self, item):
         change = 1

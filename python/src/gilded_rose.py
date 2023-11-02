@@ -13,10 +13,13 @@ class GildedRose(object):
                     self.__update_sulfuras__(item)
                 case 'Aged Brie':
                     self.__update_aged_brie__(item)
+                    item.sell_in = item.sell_in - 1
                 case 'Backstage passes to a TAFKAL80ETC concert':
                     self.__update_backstage_passes__(item)
+                    item.sell_in = item.sell_in - 1
                 case _:
                     self.__update_normal_items__(item)
+                    item.sell_in = item.sell_in - 1
 
     def __update_sulfuras__(self, item):
         change = 0
@@ -25,7 +28,6 @@ class GildedRose(object):
     def __update_normal_items__(self, item):
         change = self.__normal_item_change_in_quality__(item)
         item.quality = min(50, max(0, item.quality + change))
-        item.sell_in = item.sell_in - 1
 
     def __normal_item_change_in_quality__(self, item):
         if item.sell_in > 0:
@@ -36,7 +38,6 @@ class GildedRose(object):
     def __update_backstage_passes__(self, item):
         change = self.__back_stage_passes_change_in_quality__(item)
         item.quality = min(50, max(0, item.quality + change))
-        item.sell_in = item.sell_in - 1
 
     def __back_stage_passes_change_in_quality__(self, item):
         if item.sell_in > 10:
@@ -51,7 +52,6 @@ class GildedRose(object):
     def __update_aged_brie__(self, item):
         change = self.__aged_brie_change_in_quality__(item)
         item.quality = min(50, max(0, item.quality + change))
-        item.sell_in = item.sell_in - 1
 
     def __aged_brie_change_in_quality__(self, item):
         if item.sell_in > 0:

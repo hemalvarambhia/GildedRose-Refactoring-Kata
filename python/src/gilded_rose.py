@@ -10,34 +10,25 @@ class GildedRose(object):
 
             match item.name:
                 case 'Sulfuras, Hand of Ragnaros':
-                    self.__update_sulfuras__(item)
+                    pass
                 case 'Aged Brie':
-                    self.__update_aged_brie__(item)
+                    change = self.__aged_brie_change_in_quality__(item)
+                    item.quality = min(50, max(0, item.quality + change))
                     item.sell_in = item.sell_in - 1
                 case 'Backstage passes to a TAFKAL80ETC concert':
-                    self.__update_backstage_passes__(item)
+                    change = self.__back_stage_passes_change_in_quality__(item)
+                    item.quality = min(50, max(0, item.quality + change))
                     item.sell_in = item.sell_in - 1
                 case _:
-                    self.__update_normal_items__(item)
+                    change = self.__normal_item_change_in_quality__(item)
+                    item.quality = min(50, max(0, item.quality + change))
                     item.sell_in = item.sell_in - 1
-
-    def __update_sulfuras__(self, item):
-        change = 0
-        item.quality = min(80, max(0, item.quality + change))
-
-    def __update_normal_items__(self, item):
-        change = self.__normal_item_change_in_quality__(item)
-        item.quality = min(50, max(0, item.quality + change))
 
     def __normal_item_change_in_quality__(self, item):
         if item.sell_in > 0:
             return -1
         else:
             return -2
-
-    def __update_backstage_passes__(self, item):
-        change = self.__back_stage_passes_change_in_quality__(item)
-        item.quality = min(50, max(0, item.quality + change))
 
     def __back_stage_passes_change_in_quality__(self, item):
         if item.sell_in > 10:
@@ -48,10 +39,6 @@ class GildedRose(object):
             return 3
         if item.sell_in <= 0:
             return -item.quality
-
-    def __update_aged_brie__(self, item):
-        change = self.__aged_brie_change_in_quality__(item)
-        item.quality = min(50, max(0, item.quality + change))
 
     def __aged_brie_change_in_quality__(self, item):
         if item.sell_in > 0:

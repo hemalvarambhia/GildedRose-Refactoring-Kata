@@ -37,9 +37,9 @@ class GildedRose(object):
     def __update_backstage_passes__(self, item):
         if item.sell_in > 10:
             change = 1
-        if item.sell_in in range(6, 11):
+        elif item.sell_in in range(6, 11):
             change = 2
-        if item.sell_in in range(1, 6):
+        elif item.sell_in in range(1, 6):
             change = 3
         item.sell_in = item.sell_in - 1
         if item.sell_in < 0:

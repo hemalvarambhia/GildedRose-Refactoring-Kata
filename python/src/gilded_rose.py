@@ -14,7 +14,7 @@ class GildedRose(object):
                 case 'Aged Brie':
                     change = self.__aged_brie_change_in_quality__(item)
                 case 'Backstage passes to a TAFKAL80ETC concert':
-                    change = self.__back_stage_passes_change_in_quality__(item)
+                    change = self.__backstage_passes_change_in_quality__(item)
                 case _:
                     change = self.__normal_item_change_in_quality__(item)
 
@@ -25,7 +25,7 @@ class GildedRose(object):
     def __normal_item_change_in_quality__(self, item):
         return -1 if item.sell_in > 0 else -2
 
-    def __back_stage_passes_change_in_quality__(self, item):
+    def __backstage_passes_change_in_quality__(self, item):
         if item.sell_in > 10:
             return 1
         elif item.sell_in in range(6, 11):

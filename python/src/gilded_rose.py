@@ -23,9 +23,8 @@ class GildedRose(object):
         item.quality = min(80, max(0, item.quality + change))
 
     def __update_normal_items__(self, item):
-        item.sell_in = item.sell_in - 1
         change = self.__normal_item_change_in_quality__(item)
-
+        item.sell_in = item.sell_in - 1
         item.quality = min(50, max(0, item.quality + change))
 
     def __normal_item_change_in_quality__(self, item):

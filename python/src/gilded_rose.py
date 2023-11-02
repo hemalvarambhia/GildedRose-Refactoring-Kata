@@ -41,10 +41,9 @@ class GildedRose(object):
             change = 2
         elif item.sell_in in range(1, 6):
             change = 3
-        item.sell_in = item.sell_in - 1
         if item.sell_in <= 0:
             change = -item.quality
-
+        item.sell_in = item.sell_in - 1
         item.quality = min(50, max(0, item.quality + change))
 
     def __update_aged_brie__(self, item):

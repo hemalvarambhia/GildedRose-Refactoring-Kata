@@ -10,19 +10,17 @@ class GildedRose(object):
 
             match item.name:
                 case 'Sulfuras, Hand of Ragnaros':
-                    pass
+                    change = 0
                 case 'Aged Brie':
                     change = self.__aged_brie_change_in_quality__(item)
-                    item.quality = min(50, max(0, item.quality + change))
-                    item.sell_in = item.sell_in - 1
                 case 'Backstage passes to a TAFKAL80ETC concert':
                     change = self.__back_stage_passes_change_in_quality__(item)
-                    item.quality = min(50, max(0, item.quality + change))
-                    item.sell_in = item.sell_in - 1
                 case _:
                     change = self.__normal_item_change_in_quality__(item)
-                    item.quality = min(50, max(0, item.quality + change))
-                    item.sell_in = item.sell_in - 1
+
+            if change != 0:
+                item.quality = min(50, max(0, item.quality + change))
+                item.sell_in = item.sell_in - 1
 
     def __normal_item_change_in_quality__(self, item):
         if item.sell_in > 0:

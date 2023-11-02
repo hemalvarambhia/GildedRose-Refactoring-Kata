@@ -38,7 +38,7 @@ class GildedRose(object):
         change = 1
         if item.sell_in in range(6, 11):
             change = 2
-        if item.sell_in < 6:
+        if item.sell_in in range(1, 6):
             change = 3
         item.sell_in = item.sell_in - 1
         if item.sell_in < 0:

@@ -23,10 +23,7 @@ class GildedRose(object):
                 item.sell_in = item.sell_in - 1
 
     def __normal_item_change_in_quality__(self, item):
-        if item.sell_in > 0:
-            return -1
-        else:
-            return -2
+        return -1 if item.sell_in > 0 else -2
 
     def __back_stage_passes_change_in_quality__(self, item):
         if item.sell_in > 10:
@@ -39,10 +36,7 @@ class GildedRose(object):
             return -item.quality
 
     def __aged_brie_change_in_quality__(self, item):
-        if item.sell_in > 0:
-            return 1
-        else:
-            return 2
+        return 1 if item.sell_in > 0 else 2
 
 
 class Item:

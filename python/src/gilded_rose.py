@@ -49,11 +49,11 @@ class GildedRose(object):
             return -item.quality
 
     def __update_aged_brie__(self, item):
-        item.sell_in = item.sell_in - 1
         if item.sell_in > 0:
             change = 1
         else:
             change = 2
+        item.sell_in = item.sell_in - 1
 
         item.quality = min(50, max(0, item.quality + change))
 
